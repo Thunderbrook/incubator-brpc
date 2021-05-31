@@ -28,7 +28,7 @@ add_library(brpc-static STATIC $<TARGET_OBJECTS:BUTIL_LIB>
 set(SHARED_LIB ${DYNAMIC_LIB})
 
 MESSAGE("${SHARED_LIB}")
-list(REMOVE_ITEM ${SHARED_LIB} gflags)
+list(REMOVE_ITEM SHARED_LIB ${GFLAGS_LIBRARY})
 MESSAGE("${SHARED_LIB}")
 
 target_link_libraries(brpc-shared ${SHARED_LIB})
