@@ -25,7 +25,13 @@ add_library(brpc-static STATIC $<TARGET_OBJECTS:BUTIL_LIB>
                                $<TARGET_OBJECTS:SOURCES_LIB>
                                $<TARGET_OBJECTS:PROTO_LIB>)
 
-target_link_libraries(brpc-shared ${DYNAMIC_LIB})
+set(SHARED_LIB ${DYNAMIC_LIB})
+
+MESSAGE("${SHARED_LIB}")
+list(REMOVE_ITEM ${SHARED_LIB} gflags)
+MESSAGE("${SHARED_LIB}")
+
+target_link_libraries(brpc-shared ${SHARED_LIB})
 
 if(BRPC_WITH_GLOG)
     target_link_libraries(brpc-shared ${GLOG_LIB})
@@ -46,7 +52,7 @@ set(protoc_gen_mcpack_SOURCES
     ${PROJECT_SOURCE_DIR}/src/mcpack2pb/generator.cpp
  )
 add_executable(protoc-gen-mcpack ${protoc_gen_mcpack_SOURCES})
-target_link_libraries(protoc-gen-mcpack brpc-shared)
+target_link_libraries(protoc-gen-mcpack brpc-shared ${GFLAGS_LIBRARY})
     
 #install directory
 install(TARGETS brpc-shared

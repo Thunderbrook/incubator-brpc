@@ -176,7 +176,9 @@ include_directories(
         ${OPENSSL_INCLUDE_DIR}
         )
 
+
 set(DYNAMIC_LIB
+    ${GFLAGS_LIBRARY}
     ${PROTOBUF_LIBRARIES}
     ${LEVELDB_LIB}
     ${PROTOC_LIB}
@@ -186,6 +188,7 @@ set(DYNAMIC_LIB
     ${OPENSSL_CRYPTO_LIBRARY}
     dl
     z)
+
 
 if(WITH_MESALINK)
     list(APPEND DYNAMIC_LIB ${MESALINK_LIB})
