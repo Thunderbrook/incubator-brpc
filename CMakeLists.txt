@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 2.8.10)
 project(brpc C CXX)
 
 option(WITH_GLOG "With glog" OFF)
+option(LINK_GFLAGS "link gflags" OFF)
 option(WITH_MESALINK "With MesaLink" OFF)
 option(DEBUG "Print debug logs" OFF)
 option(WITH_DEBUG_SYMBOLS "With debug symbols" ON)
