@@ -177,7 +177,6 @@ include_directories(
         )
 
 set(DYNAMIC_LIB
-    ${GFLAGS_LIBRARY}
     ${PROTOBUF_LIBRARIES}
     ${LEVELDB_LIB}
     ${PROTOC_LIB}
